@@ -1,0 +1,11 @@
+/* 	Dit bestand zal gebruikt worden indien de breedte van het scherm groter is dan 900px	*/
+
+@media only screen and (max-width: 480px) {
+	header, .article, footer{
+		width: 480px;
+		margin: 0 auto;
+	}
+.Afbeelding{
+	margin: 0 auto;
+}
+
