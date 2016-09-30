@@ -1,0 +1,110 @@
+#graphDomein{
+    max-height: 1100px;
+}
+.topBubble{
+    display: inline-block;
+}
+#shuffle{
+    width: 25%;
+}
+.mainBubbleSVG{
+    display: block;
+    text-align: center;
+}
+.listArtists{
+    display: inline-block;
+    width: 100%;
+}
+#chartdiv{
+    display: inline-block;
+}
+ul{
+    margin: 0;
+}
+.btn{
+    margin-bottom: 10px;
+}
+.Artistslist{
+    background-color: rgba(204, 201, 72, 0.50);
+    color: black;
+    padding: 5px;
+    border: 2px solid black;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+#homePage, #newsHomepage, #artistHomepage{
+    background-color: rgba(204, 201, 72, 0.50);
+}
+#navigationOwn{
+    background-color: rgba(204, 201, 72, 0.70);
+}
+.well{
+    background-color: rgba(204, 201, 72, 0.70);
+}
+body{
+    background-image: url(../images/BGImage.jpg);
+    background-attachment: fixed;
+}
+.homepageOwn{
+    background-color: rgba(204, 201, 72, 0.40);
+    line-height: 1;
+    color: black;
+    padding: 20px 0 20px 0;
+    margin-bottom: 20px;
+    border: solid 2px black;
+}
+.homepageWrapper{
+    max-width: 1240px;
+    border: 1px solid black;
+    display:flex;
+}
+.domeinen p, .footerDomein p{
+   background-color: rgba(204, 201, 72, 0.70);
+    border: solid 1px black;
+    font-size: 17px;
+}
+.domeinen{
+    padding: 10px;
+    text-align: center;
+    border: solid 2px black;
+    background-color: rgba(204, 201, 72, 0.40);
+    width: 32%;
+    margin: 10px;
+}
+.domeinen:hover,.footerDomein:hover{
+    background-color: rgba(204, 201, 72, 0.70);
+    cursor: pointer;
+}
+.footerWrapper{
+    max-width: 1240px;
+    border: 1px solid black;
+    display:flex;
+}
+.footerDomein{
+    width: 100%;
+    margin: 10px;
+    border: solid 2px black;
+    background-color: rgba(204, 201, 72, 0.40);
+    text-align: center;
+    padding: 10px;
+}
+@media screen and (max-width: 900px) {
+    .homepageWrapper {
+        max-width: 1240px;
+        border: none;
+        display: flex;
+        flex-direction: column;
+    }
+    .domeinen{
+        width: 100%;
+    }
+    .footerWrapper{
+        max-width: 1240px;
+        display: flex;
+        border: none;
+        flex-direction: column;
+    }
+    .footerDomein{
+
+    }
+}

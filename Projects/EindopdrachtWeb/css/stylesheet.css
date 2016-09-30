@@ -1,0 +1,477 @@
+/* Matthieu Van Wambeke
+        1NMCT1
+    EINDOPDRACHT WEB
+   -------------------
+   */
+
+body{
+    background-image: url("../images/bg.png");
+    width: 900px;
+    margin: 0 auto;
+
+    font-family: "Comic Sans MS";
+    font-size: 15px;
+
+}
+
+html {height: 101%;}
+
+main{
+    box-shadow: 0 0 65px 10px rgba(130, 130, 130, 0.8);
+
+}
+p{
+    line-height: 27px;
+    margin: 20px;
+}
+
+#date_time{
+    color: white;
+    float: left;
+    margin-left: 15px;
+    position: absolute;
+}
+
+.headertop > img{
+    height: 22px;
+    width: 22px;
+    left: 742px;
+    position: relative;
+    top: 1px;
+
+}
+
+.search{
+    border: solid lightgray 2px;
+    height: 17px;
+    left: 769px;
+    position: relative;
+    top: -25px;
+    width: 122px;
+
+}
+
+.headertop{
+    background-color: black;
+    width: 900px;
+    height: 25px;
+
+}
+
+header{
+    text-align: center;
+    height: 281px;
+}
+
+.search input{
+    background-color: black;
+    color: white;
+    border: none;
+    height: 14px;
+    left: 2px;
+    position: relative;
+    top: -5px;
+    width: 99px;
+}
+
+.musea>h2{
+    text-align: right;
+    margin-right: 20px;
+}
+
+.musea>a>img{
+    width: 200px;
+    float: right;
+    box-shadow: 0 0 15px 0 black;
+    margin: 0 20px 0 28px;
+}
+
+.festival> a >img{
+    width: 200px;
+    float: left;
+    margin: 0 28px 0 20px;
+    box-shadow: 0 0 15px 0 black;
+}
+
+.festival>h2{
+    margin-left: 20px;
+}
+
+.festival{
+    width: auto;
+    height: 191px;
+}
+.festival>p{
+    margin: 19px 0 0 0;
+    padding-right: 25px;
+}
+.musea>p{
+    margin: 19px 0 17px 0;
+    padding-left: 25px;
+
+
+}
+
+header>a>img{
+    border-bottom: 3px solid black;
+}
+
+nav a{
+    text-decoration: none;
+    color: white;
+}
+.hoofdmenu{
+    background-color: rgb(214, 19, 25);
+    height: 35px;
+    float: left;
+	width: 900px;
+    font-size: 23px;
+    text-align: center;
+    box-shadow: 0 5px 9px -2px gray;
+
+}
+nav>ul>li{
+    display: inline;
+    padding: 12px;
+    margin-top: 5px;
+
+}
+.linkVisited{
+
+    text-decoration: underline;
+}
+
+nav a:hover{
+color: #ddd;
+
+}
+
+nav>ul{
+    padding: 0;
+    margin: 0;
+}
+
+
+nav{
+    margin-top: 0;
+}
+
+.vlaglinks{
+    height: 40px;
+    width: 60px;
+    background-image: url("../images/vlag.jpg");
+    background-repeat: no-repeat;
+    float: left;
+    border-right: 1px solid #ffffff;
+
+}
+
+.vlagrechts{
+    border-left: 1px solid #ffffff;
+    height: 40px;
+    width: 60px;
+    float: right;
+    background-image: url("../images/vlag.jpg");
+}
+.content{
+    width: auto;
+    height: auto;
+    background-color: #F0F0F0;
+    clear: left;
+
+    padding: 18px;
+}
+.content > h1{
+    text-align: center;
+    margin: 0 0 11px 0;
+}
+.content>p>a>img{
+    margin: 0 auto 18px 0;
+    box-shadow: 1px 1px 15px 0 black;
+    border-radius: 15px;
+    height: 290px;
+}
+.license{text-align: center;}
+.copyright>p{
+    margin: 0 6px 0 0;
+    float: right;
+    color: white;
+    font-size: 13px;
+}
+
+.followus{
+    width: 289px;
+    float: left;
+    height: 190px;
+    padding: 5px;
+    border-right: 1px solid red;
+
+}
+
+.alsosee{
+    width: 289px;
+    height: 190px;
+    float: right;
+    padding: 5px;
+    border-right: 1px solid red;
+}
+
+.alsosee a{
+    float: left;
+    padding: 5px;
+}
+
+/* Begin Contact */
+
+.contact{
+    width: 290px;
+    height: 190px;
+    float: right;
+    padding: 5px;
+
+}
+
+#contactus{
+    margin: 0 0 20px 12px;
+}
+
+.contact > p {
+    color: #ffffff;
+}
+
+.copyright{
+    width: 900px;
+    float: right;
+    height: 26px;
+    background-color: black
+
+}
+
+#contactform{
+    margin: 20px 0 20px 20px;
+}
+
+#submit{
+    position: relative;
+    left: 141px;
+}
+
+/* Einde contact */
+
+.footer a:hover{
+    text-decoration: underline;
+}
+
+.footer > a{
+    text-decoration: none;
+    color: white;
+    margin-left: 12px;
+
+
+}
+
+.followus a {
+    text-decoration: none;
+    color: #ffffff;
+
+}
+
+.alsosee a{
+    text-decoration: none;
+    color: #ffffff;
+}
+.contact a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.followus > p{
+
+    margin: 0 0 6px;
+    padding: 8px 0 0 41px;
+    color: #ffffff;
+
+
+}
+
+.followus img {
+    float: left;
+    width: 32px;
+    height: 32px;
+    margin: 8px 0 0 14px;
+    padding-right: 10px;
+}
+
+.footer  h2{
+    text-align: center;
+    font-weight: lighter;
+    font-size: 20px;
+    color: white;
+    margin: 0;
+    border-bottom: #ffffff solid 1px;
+}
+
+.footer{
+    width:auto;
+    height: 220px;
+    background-color: rgb(214, 19, 25);
+    box-shadow: 0 0 30px -9px black;
+}
+/*
+ABOUT.html
+*/
+
+
+/*
+CULTURE
+*/
+
+.fietsen > h2{
+    margin-left: 20px;
+}
+
+.redlight > h2{
+    text-align: right;
+    margin-right: 30px;
+}
+
+.redlight > p{
+    line-height: 25px;
+}
+
+.fietsen > p{
+    line-height: 25px;
+}
+
+.fietsen > a > img{
+    width: 200px;
+    float: left;
+    margin: 0 28px 0 20px;
+    box-shadow: 0 0 15px 0 black;
+}
+
+.redlight > a > img{
+    width: 200px;
+    float: right;
+    margin: 0 28px 0 52px;
+    box-shadow: 0 0 15px 0 black;
+}
+#map-canvas{
+    height: 400px;
+    margin: 0;
+    padding: 0;
+    border: 2px solid black;
+}
+/*
+PHOTOS
+*/
+h2{
+    text-align: center;
+}
+/*
+END PHOTOS
+*/
+/*
+NIGHTLIFE
+*/
+.video{
+    width: 100%;
+    height: 500px;
+    top: 100px;
+}
+
+.slide img{
+    width: 100%;
+    height: 133px;
+}
+.parties{
+background-color: #F0F0F0;
+border-top: 1px solid #cccccc;
+}
+.parties p{
+    text-align: center;
+    padding: 15px;
+	margin: 0px;
+}
+
+/* Nightlife einde */
+
+/* Slider begin */
+#slider {
+    width: 800px;
+    height: 540px;
+    overflow: hidden;
+    margin: 0 auto 0 auto;
+}
+#slider ul {
+    height: 300px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    position: relative;
+}
+#slider ul li {
+    float: left;
+    width: 800px;
+    height: 540px;
+}
+#slider ul li img{
+    width: 800px;
+    height: 540px;
+}
+.navigatie {
+    height: 40px;
+    line-height: 40px;
+    background-color: #EEE;
+}
+.navigatie a {
+    display: block;
+    cursor: pointer;
+    padding: 0 15px;
+}
+#vorige {
+    float: left;
+}
+#volgende {
+    float: right;
+}
+figcaption {
+    display: block;
+} 
+
+
+/* slider einde */
+
+/* mail */
+.error {
+display: none;
+color: red;
+margin-left: 117px;
+}
+input{
+margin: 5px;
+margin: 6px 4px 3px 0px;
+}
+
+#in{
+float: left;
+width: 100px;
+margin: 6px 4px 3px 14px;
+}
+#comment{
+margin-top: 7px;
+}
+.contact_comment  {
+
+}
+.sendemail a:hover{
+    text-decoration: underline;
+}
+.sendemail a{
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+}
+.sendemail{
+    text-align: center;
+}

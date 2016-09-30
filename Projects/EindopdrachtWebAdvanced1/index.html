@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrapCSS.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-top navigation">
+        <div class="navbar-header page-scroll">
+            <a class="navbar-brand" href="index.html">Yelpme4square</a></div>
+        </div>
+        <div class="container">
+        <ul class="nav navbar-nav navbar-right" id="navbarRight">
+            <li>
+                <a href="FoursquareIndex.html" class="navbar-brand">Search with Foursquare</a>
+            </li>
+            <li>
+                <a href="YelpIndex.html" class="navbar-brand">Search with Yelp</a>
+            </li>
+        </ul>
+        </div>
+    </nav>
+    <div id="fb-root"></div>
+</header>
+
+<script>
+    window.fbAsyncInit = function () {
+        FB.Event.subscribe('auth.statusChange', onFacebookStatusChange);
+        FB.init({
+            appId: '440975616103185',
+            status: true,
+            cookie: true,
+            xfbml: true
+        });
+
+        FB.getLoginStatus(onFacebookInitialLoginStatus);
+
+    };
+
+    (function () {
+        var e = document.createElement('script');
+        e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+        e.async = true;
+        document.getElementById('fb-root').appendChild(e);
+    }());
+
+    function facebookLogin() {
+        FB.login(onFacebookLoginStatus, {scope: 'user_friends'});
+    }
+
+    function onFacebookInitialLoginStatus(response) {
+        console.log(FB.getAuthResponse());
+        if (response.status == "connected" && response.authResponse) {
+
+            alert("You are signed in on Facebook! Enjoy the application");
+            var loginButtonDiv = document.getElementById("fb-login-button-div");
+            loginButtonDiv.style.display = "none";
+
+            var contentDiv = '<div id="fb-login-button-div">';
+            contentDiv += '<p class="ingelogd">You are logged in to facebook, now you can use our application</p>';
+            contentDiv += '</div>';
+            contentDiv += '<div class="pushButton">';
+            contentDiv += '</div>';
+            contentDiv += '<div id="geefWeer">';
+            contentDiv += '<input class="btn" type="button" onclick="geefWeerFoursquare()" value="Use Foursquare" >';
+            contentDiv += '<input class="btn" type="button" onclick="geefWeerYelp()" value="Use Yelp" >';
+            contentDiv += '</div>';
+
+            $('#user-is-authenticated').append(contentDiv);
+        }
+        else {
+            facebookLogin();
+        }
+    }
+
+    function geefWeerFoursquare() {
+        window.location = "FoursquareIndex.html";
+    }
+    function geefWeerYelp() {
+        window.location = "YelpIndex.html";
+    }
+
+    function onFacebookStatusChange(response) {
+
+    }
+
+    function onFacebookLoginStatus(response) {
+
+        if (response.status == "connected" && response.authResponse) {
+
+            var loginButtonDiv = document.getElementById("fb-login-button-div");
+            loginButtonDiv.style.display = "none";
+
+            var contentDiv = '<div id="fb-login-button-div">';
+            contentDiv += '<p class="ingelogd">You are logged in to facebook, now you can use our application</p>';
+            contentDiv += '</div>';
+            contentDiv += '<div class="pushButton">';
+            contentDiv += '</div>';
+            contentDiv += '<div id="geefWeer">';
+            contentDiv += '<input class="btn" type="button" onclick="geefWeerFoursquare()" value="Use Foursquare" >';
+            contentDiv += '<input class="btn" type="button" onclick="geefWeerYelp()" value="Use Yelp" >';
+            contentDiv += '</div>';
+
+            $('#user-is-authenticated').append(contentDiv);
+            function geefWeerFoursquare() {
+                window.location = "FoursquareIndex.html";
+            }
+            function geefWeerYelp() {
+                window.location = "YelpIndex.html";
+            }
+        }
+        else {
+            alert("Please login to facebook to enjoy our application.");
+        }
+
+    }
+
+</script>
+
+<div id="fb-login-button-div" class="buttonGoTo">
+    <p class="ingelogd">You need to be signed in on facebook to enjoy all the features of this application</p>
+</div>
+<div id="user-is-authenticated">
+
+</div>
+
+<div class="navbar" id="footer">
+    &#169; Application creator: Matthieu Van Wambeke. All rights reserved.
+</div>
+</body>
+</html>

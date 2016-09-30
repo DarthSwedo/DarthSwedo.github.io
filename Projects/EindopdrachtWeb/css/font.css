@@ -1,0 +1,29 @@
+/* Matthieu Van Wambeke
+        1NMCT1
+    EINDOPDRACHT WEB
+   -------------------
+   */
+
+@font-face {
+    /* http://www.fontsquirrel.com/fonts/Audimat */
+    font-family: 'Audimat';
+    src: url('../font/audimat_OT/AUdimat-Regular.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Audimat";
+    src: url('../font/audimat_OT/AUdimat-Bold.otf') format('truetype');
+    font-weight: bold;
+}
+@font-face {
+    font-family: "Audimat";
+    src: url('../font/audimat_OT/AUdimat-Italic.otf') format('truetype');
+    font-style: italic, oblique;
+}
+@font-face {
+    font-family: "Audimat";
+    src: url('../font/audimat_OT/AUdimat-BoldItalic.otf') format('truetype');
+    font-weight: bold;
+    font-style: italic, oblique;
+}

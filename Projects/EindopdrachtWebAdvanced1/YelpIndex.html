@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrapCSS.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://addevent.com/libs/atc/1.6.1/atc.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/Calendar%20Theme.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="http://oauth.googlecode.com/svn/code/javascript/oauth.js"></script>
+    <script type="text/javascript" src="http://oauth.googlecode.com/svn/code/javascript/sha1.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=OnLoadCallback"></script>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-top navigation">
+        <div class="navbar-header page-scroll">
+            <a class="navbar-brand" href="index.html">Yelpme4square</a>        </div>
+        <ul class="nav navbar-nav navbar-right" id="navbarRight">
+            <li>
+                <a href="FoursquareIndex.html" class="navbar-brand">Search with Foursquare</a>
+            </li>
+            <li>
+                <a href="YelpIndex.html" class="navbar-brand">Search with Yelp</a>
+            </li>
+        </ul>
+    </nav>
+    <div id="fb-root"></div>
+</header>
+<div class="form-style-10">
+<form id="search" method="get">
+<div class="form-group">
+    <label for="location">Regio</label>
+    <input type="text" class="form-control" id="location" name="field1">
+</div>
+<div class="form-group">
+    <label for="term">Soort horecazaak</label>
+    <input type="text" class="form-control" id="term" class="searchinput" name="field2">
+</div>
+    <div class="container" style="width: 100%; height: 100%; text-align: center">
+    <button id="searchButton">Search for venues!</button>
+    </div>
+</form>
+</div>
+<div>
+    <div class="popupContainer" id="popupContainer">
+
+    </div>
+    <div id="resultaat">
+
+    </div>
+    <div class="kalenderInfo">
+
+    </div>
+</div>
+<div class="navbar navbar-fixed-bottom" id="footer">
+    &#169; Application creator: Matthieu Van Wambeke. All rights reserved.
+</div>
+<script type="text/javascript" src="js/verwerkingyelp2.js"></script>
+</body>
+</html>

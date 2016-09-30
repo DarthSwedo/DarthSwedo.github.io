@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <script type="text/javascript" src="../common/get_key_with_callback.js"></script>
+    <title> Artists by location</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+<div id="wrap" class="navbar navbar-inverse">
+    <div class="navbar-inner" id="navigationOwn">
+        <div class="container">
+            <a id='show-search' class="brand" href="index.html">Recent Artist News</a>
+            <ul class="nav">
+                <li class="nav-choice"><a href="index.html">Main</a></li>
+                <li class="nav-choice"><a href="SearchNews.html">Search for news</a></li>
+                <li class="nav-choice"><a href="ArtistNews.html">Search for reviews</a></li>
+                <li class="nav-choice active"><a href="Artistbylocation.html">Search artist by location</a></li>
+            </ul>
+            <ul class="nav pull-right">
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container">
+<div class="hero-unit" id="artistHomepage">
+
+        <h1>Search here for your artist by location!</h1>
+        <h4>Because of this you can just fill in your home town and see if there is any
+        hidden talent! Or you could search for a place you don't know anything about on bases
+        of music!</h4>
+        <br>
+        <p>
+
+        <div>
+            Enter artist city, state and/or country:
+            <input id='locale-input' type="text" class="input-block-level" placeholder="e.g. Bruges, Belgium, Europe">
+            Number of results you wish to receive:
+            <input type="text" id="amount" placeholder="Number of results" class="input-block-level">
+    <button id="go" class="btn btn-primary"> Get News </button>
+        </div>
+        <div class="container listArtists">
+            <ul id='results'> </ul>
+        </div>
+    </div>
+</div>
+</body>
+
+<script type="text/javascript">
+    jQuery.ajaxSettings.traditional = true;
+    var endpoint = 'http://developer.echonest.com/api/v4/'
+    var apiKey = 'NO_API_KEY';
+    var amount;
+    function fetchArtistsByLocation(locale) {
+        var url = endpoint + 'artist/search';
+        $("#results").hide();
+        $.getJSON(url,
+                {
+                    'api_key' : apiKey,
+                    'artist_location': locale,
+                    'results' : amount,
+                    'bucket': [ 'artist_location'],
+
+                    'sort': 'hotttnesss-desc'
+                },
+                function(data) {
+                    if (data.response.status.code == 0) {
+                        var artists = data.response.artists;
+                        $("#results").empty();
+                        if (artists.length > 0) {
+
+                            for (var i = 0; i < artists.length; i++) {
+                                var artist = artists[i];
+                                var div = $("<div class='Artistslist'>");
+                                if ('artist_location' in artist) {
+                                    div.text(artist.name + " from " + artist.artist_location.location);
+                                    $("#results").show();
+                                    $("#results").append(div);
+                                } else {
+                                    console.log(artist);
+                                }
+                            }
+                        } else {
+                            $("#results").text("No results");
+                        }
+                    } else {
+                        alert("Trouble getting artists: " + data.response.status.message);
+                    }
+                })
+                .error(
+                        function(data) {
+                            alert("query syntax error. Use 'city:', 'region:' and 'country:' qualifiers only");
+                        }
+                );
+    }
+    function go(){
+        var locale = $("#locale-input").val();
+        amount = $('#amount').val();
+        fetchArtistsByLocation(locale);
+    }
+    $(document).ready(function() {
+        // fetchApiKey will fetch the Echo Nest demo key for demos
+        // hosted on The Echo Nest, otherwise it fetch an empty key
+                api_key = 'RUUIRW2QSRYZYMDIV';
+            apiKey = api_key;
+            $('#go').click(go);
+    });
+</script>
+</html>

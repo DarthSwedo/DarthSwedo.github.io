@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive genres graph</title>
+    <meta charset="UTF-8">
+    <script src="http://www.amcharts.com/lib/3/amcharts.js" type="text/javascript"></script>
+    <script src="http://www.amcharts.com/lib/3/serial.js" type="text/javascript"></script>
+    <script src="http://www.amcharts.com/lib/3/themes/dark.js"></script>
+    <script src="http://www.amcharts.com/lib/3/themes/light.js"></script>
+    <script src="http://www.amcharts.com/lib/3/themes/chalk.js"></script>
+    <script src="http://www.amcharts.com/lib/3/themes/patterns.js"></script>
+    <link href="images/style.css" rel="stylesheet" type="text/css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="js/amcharts.js" type="text/javascript"></script>
+    <script src="js/serial.js" type="text/javascript"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../common/get_key_with_callback.js"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+<style>
+    .amcharts-chart-div{
+        width: 724px;
+        height: 870px;
+    }
+    tspan {
+        font-size: 15px;
+    }
+</style>
+<div class="container footerWrapper">
+    <div class="footerDomein" id="graphDomein">
+        <div>
+            <input id="return" type="button" value="Return to homepage" style="background-color: #383635; color: white;">
+        </div>
+        <div id="slideGraph">
+            <fieldset>
+                <label id="labelept" for="selGenre">Change the genre:</label>
+                <select name="selGenre" id="selGenre" onchange="changeGenre()">
+                    <option value="rock">rock</option>
+                    <option value="pop">pop</option>
+                    <option value="house">house</option>
+                    <option value="jazz">jazz</option>
+                    <option value="country">country</option>
+                    <option value="soul">soul</option>
+                    <option value="hip hop">hip hop</option>
+                    <option value="blues">blues</option>
+                    <option value="folk">folk</option>
+                    <option value="punk">punk</option>
+                    <option value="metal">metal</option>
+                    <option value="classical">classical</option>
+                    <option value="electronic">electronic</option>
+                    <option value="funk">funk</option>
+                    <option value="rap">rap</option>
+                    <option value="disco">disco</option>
+                </select>
+                <label id="labelOpt" for="selTheme">Change the theme:</label>
+                <select name="selTheme" id="selTheme" onchange="changeTheme()">
+                    <option value="default">default</option>
+                    <option value="dark">dark</option>
+                    <option value="chalk">chalk</option>
+                    <option value="patterns">patterns</option>
+                    <option value="light">light</option>
+                </select>
+            </fieldset>
+        </div>
+
+        <div id="results">
+            <div id="chartdiv" style="width: 75%; height: 50%;"></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    jQuery.ajaxSettings.traditional = true;
+    var seltheme, theme;
+    var arr = [];
+    var superarr = [];
+    var i = 0;
+    var root, artists, hotttnesss;
+    function changeTheme() {
+        seltheme = document.getElementById("selTheme");
+        theme = seltheme.value;
+        changeGenre();
+    }
+    function changeGenre(){
+        var apiKey = 'RUUIRW2QSRYZYMDIV';
+        var seloption = document.getElementById("selGenre");
+        var genre = seloption.value;
+        var url = 'http://developer.echonest.com/api/v4/artist/top_hottt';
+        $('.footerDomein').css("background-color", "rgba(204, 201, 72, 0.40)");
+        $('#labelept').css("color", "black");
+        $('#labelOpt').css("color", "black");
+        var args = {
+            format:'json',
+            api_key: apiKey,
+            results: 20,
+            genre: genre,
+            bucket: ['hotttnesss', 'genre', 'images', 'urls','songs']
+        };
+        $("#chartdiv").remove();
+        $.getJSON(url, args,
+                function (dataecho) {
+                    root = dataecho.response.artists;
+                    console.log(root);
+
+                    $(document).ready(function() {
+
+                        var chart = new AmCharts.AmSerialChart(AmCharts.themes[theme]);
+
+                            chart.dataProvider = root;
+                        //chart.dataProvider = chartData;
+                        chart.categoryField = "name";
+                        chart.titles = genre;
+
+
+                        var valueAxis = new AmCharts.ValueAxis();
+                        valueAxis.axisColor = "black";
+                        valueAxis.title = genre;
+                        valueAxis.gridAlpha = 0.8;
+                        chart.addValueAxis(valueAxis);
+                        var categoryAxis = chart.categoryAxis;
+                        categoryAxis.autoGridCount  = false;
+                        categoryAxis.gridCount = root.length;
+                        categoryAxis.gridPosition = "start";
+                        categoryAxis.labelRotation = 90;
+                        var graph = new AmCharts.AmGraph();
+                        graph.valueField = "hotttnesss";
+                        graph.balloonText = "[[category]]; <b>[[value]]</b>";
+                        graph.type = "column";
+                        graph.fillAlphas = 0.8;
+                        chart.angle = 15;
+                        chart.depth3D = 5;
+                        chart.addGraph(graph);
+                        var chartdiv = '<div id="chartdiv" style="width: 75%; height: 50%;"></div>';
+                        $('#results').append(chartdiv);
+                        chart.write('chartdiv');
+                        $('.amcharts-chart-div').css("height" , "720px");
+                        if(theme == "chalk" || theme == "dark"){
+                            $('.footerDomein').css("background-color", "black");
+                            $('#labelept').css("color", "white");
+                            $('#labelOpt').css("color", "white");
+                        }
+                    });
+                });
+    }
+    $(document).ready(function(){
+        $('#return').click(function(){
+           window.location.href = "ExploreMusic.html";
+        });
+        changeGenre();
+    });
+/*
+//names
+
+for(var p = 0; p < 20; p++){
+ superarr = arr.push(root[i].name);
+ }
+ for(i = 0; i < 20; i++) {
+ graph.balloonText = arr[i];
+ } */
+</script>
+</body>
+</html>

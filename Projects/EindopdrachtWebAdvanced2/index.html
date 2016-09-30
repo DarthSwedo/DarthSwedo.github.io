@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Music explorer MatthieuVW</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../common/get_key_with_callback.js"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+
+<div id="wrap" class="navbar navbar-inverse">
+    <div class="navbar-inner" id="navigationOwn">
+        <div class="container">
+            <a id='show-search' class="brand" href="index.html">Music explorer MatthieuVW</a>
+            <ul class="nav">
+                <li class="nav-choice active"><a id='show-main'>Main</a></li>
+                <li class="nav-choice"><a href="SearchNews.html">Search for news</a></li>
+                <li class="nav-choice"><a href="ArtistNews.html">Search for reviews</a></li>
+                <li class="nav-choice"><a href="Artistbylocation.html">Search artist by location</a></li>
+            </ul>
+            <ul class="nav pull-right">
+               </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="homepageOwn">
+        <div class="container">
+    <h1 style="text-align: center; opacity: 1;">Welcome to our homepage!</h1>
+    </div>
+</div>
+<div class="container homepageWrapper">
+        <div class="domeinen" id="newsClick">
+            <img src="images/News.png" alt="Generic placeholder image">
+            <h2>Find news</h2>
+            <h3>Want to know what you're artist is doing.</h3>
+            <p>Then this feature is made for you because you can simply type in the name of your artist and hit search! Our application
+            will find all the news that's relevant to that artist!</p>
+        </div>
+    <div class="domeinen" id="locationClick">
+        <img src="images/Location.png" alt="Generic placeholder image">
+        <h2>Find by location!</h2>
+        <h3>Don't know what hidden talents a city has?</h3>
+        <p>Then just fill in the city/country here and hit search! Our application will display
+        all of the artists in that particular location! How neat!</p>
+    </div>
+    <div class="domeinen" id="reviewsClick">
+        <img src="images/Reviews.png" alt="Generic placeholder image">
+        <h2>Search for reviews!</h2>
+        <h3>Want to know what others think of your idol?</h3>
+        <p>Then you can find that out here! Here you'll find all of the reviews by others or
+        companies about your favorite idol! That way you know what others think of him/her.</p>
+    </div>
+</div>
+<div class="container footerWrapper">
+    <div class="footerDomein" id="exploreClick">
+        <img src="images/Explore.png" alt="Generic placeholder image">
+        <h2>Explore the world of music!</h2>
+        <h3>Lose yourself in our interactive music graphs!</h3>
+        <p>Here you are able to see all the most popular artists displayed on
+        one page! This way you will explore new kinds of music that you would've never
+        tried before!</p>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+    $('#newsClick').on("click", function(){
+        (window.location.replace('SearchNews.html'));
+    });
+        $('#locationClick').on("click", function(){
+            (window.location.replace('Artistbylocation.html'));
+        });
+        $('#reviewsClick').on("click", function(){
+            (window.location.replace('ArtistNews.html'));
+        });
+        $('#exploreClick').on("click", function(){
+            (window.location.replace('ExploreMusic.html'));
+        });
+    });
+</script>
+</body>
+</html>
