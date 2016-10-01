@@ -1,0 +1,73 @@
+main{
+    box-shadow: 0 0 0 0px;
+	}
+	header {
+	display: none;
+	}
+.search{
+display; none;
+
+}
+.hoofdmenu{
+box-shadow: 0px;
+}
+.headertop img {
+
+display: none;
+}
+nav {
+display: none;
+}
+.hoofdmenu{
+box-shadow: 0 0 0 0px;
+border-bottom: solid 1px black;
+}
+.footer {
+width: 900px;
+height: 150px;
+box-shadow: 0 0 0 0px;
+border-top: solid 2px black;
+
+}
+.followus{
+    width: 235px;
+    float: left;
+    height: 190px;
+    padding: 0px;
+	margin: 0px;
+    
+
+}
+
+.alsosee{
+    width: 235px;
+    height: 190px;
+    float: right;
+    margin-right: 5px;
+    padding: 0px;
+	margin: 0px;
+}
+.contact{
+    width: 215px;
+    height: 190px;
+    float: right;
+    padding: 0px;
+	margin: 0px;
+
+}
+.copyright {
+margin: 10px;
+}
+.video {
+display: none;
+}
+.navigatie {
+display: none;
+}
+
+
+   
+
+
+
+

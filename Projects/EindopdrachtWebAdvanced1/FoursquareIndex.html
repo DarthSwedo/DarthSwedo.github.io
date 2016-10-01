@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>Places from Foursquare</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.mapbox.com/mapbox.js/v2.2.4/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v2.2.4/mapbox.css' rel='stylesheet' />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrapCSS.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <style>
+        #map { position: relative;
+            width: 70%;
+            height: 70%;
+            margin: 0 auto; }
+    </style>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-top navigation">
+        <div class="navbar-header page-scroll">
+            <a class="navbar-brand" href="index.html">Yelpme4square</a>        </div>
+        <ul class="nav navbar-nav navbar-right" id="navbarRight">
+            <li>
+                <a href="FoursquareIndex.html" class="navbar-brand">Search with Foursquare</a>
+            </li>
+            <li>
+                <a href="YelpIndex.html" class="navbar-brand">Search with Yelp</a>
+            </li>
+        </ul>
+    </nav>
+    <div id="fb-root"></div>
+</header>
+<div class="form-style-10"  id="foursquareSearch">
+    <!--<form id="search" method="get">-->
+        <div class="form-group">
+            <label for="searchLocationFoursquare">Regio</label>
+            <input type="text" class="form-control" id="searchLocationFoursquare" name="field1">
+        </div>
+        <div class="form-group">
+            <label for="searchTermFoursquare">Soort zaak</label>
+            <input type="text" class="form-control" id="searchTermFoursquare" name="field2">
+        </div>
+    <div class="container" style="width: 100%; height: 100%; text-align: center">
+        <button id="searchFoursquareButton">Search for venues!</button>
+    </div>
+    <!--</form>-->
+
+        <input type="hidden" id="searchString" >
+    </div>
+<div id='map'></div>
+<!-- jQuery is required for this example. -->
+<script src='https://code.jquery.com/jquery-1.11.0.min.js'></script>
+<script>
+    $('#searchFoursquareButton').click(function () {
+//        alert('The button you have clicked was the search button');
+
+
+        showMap();
+    });
+
+    function showMap(){
+
+        var near = $('#searchLocationFoursquare').val();
+        var query = $('#searchTermFoursquare').val();
+        console.log(near);
+        console.log(query);
+
+        //----------------------------------------------------------------------------------------------------------//
+        L.mapbox.accessToken = 'pk.eyJ1IjoiZGFydGhzd2VkbyIsImEiOiJjaWk1dDB3ZWMwMWl5dHptMDRqc2tkajZlIn0.IdP7dUR5vf7nFQRO2-Yc2w';
+        var geocoder = L.mapbox.geocoder('mapbox.places'),
+                map = L.mapbox.map('map', 'mapbox.streets').setView([3.82, 50.66],1);
+
+        geocoder.query(near, showMap);
+
+        function showMap(err, data) {
+            // The geocoder can return an area, like a city, or a
+            // point, like an address. Here we handle both cases,
+            // by fitting the map bounds to an area or zooming to a point.
+            if (data.lbounds) {
+                map.fitBounds(data.lbounds);
+            } else if (data.latlng) {
+                map.setView([data.latlng[0], data.latlng[1]], 115);
+            }
+        }
+//-----------------------------------------------------------------------------------------------------------------//
+        // L.mapbox.accessToken = 'pk.eyJ1IjoiZGFydGhzd2VkbyIsImEiOiJjaWk1dDB3ZWMwMWl5dHptMDRqc2tkajZlIn0.IdP7dUR5vf7nFQRO2-Yc2w';
+
+
+
+        // Credit Foursquare for their wonderful data
+        map.attributionControl
+                .addAttribution('<a href="https://foursquare.com/">Places data from Foursquare</a>');
+
+        // Create a Foursquare developer account: https://developer.foursquare.com/
+        // NOTE: CHANGE THESE VALUES TO YOUR OWN:
+        // Otherwise they can be cycled or deactivated with zero notice.
+        var CLIENT_ID = 'RHJNO3RJJH5RGVS1ZZJ5USCIAROR3Z4RGUKXEN2SG1T1XUFQ';
+        var CLIENT_SECRET = 'JCHYIXY3AYKDYQIUKYCQO01QK02QQIQPBS2BPJTOI24YPJDO';
+
+        // https://developer.foursquare.com/start/search
+        var API_ENDPOINT = 'https://api.foursquare.com/v2/venues/search' +
+                '?client_id=CLIENT_ID' +
+                '&client_secret=CLIENT_SECRET' +
+                '&v=20130815' +
+                '&ll=LATLON' +
+                '&near=' + near +
+                '&query=' + query +
+                '&callback=?';
+
+        var foursquarePlaces = L.layerGroup().addTo(map);
+
+        // Use jQuery to make an AJAX request to Foursquare to load markers data.
+        $.getJSON(API_ENDPOINT
+                .replace('CLIENT_ID', CLIENT_ID)
+                .replace('CLIENT_SECRET', CLIENT_SECRET)
+                .replace('LATLON', map.getCenter().lat +
+                        ',' + map.getCenter().lng), function(result, status) {
+
+            if (status !== 'success') return alert('Request to Foursquare failed');
+
+//         Transform each venue result into a marker on the map.
+            for (var i = 0; i < result.response.venues.length; i++) {
+                var venue = result.response.venues[i];
+                var latlng = L.latLng(venue.location.lat, venue.location.lng);
+                var marker = L.marker(latlng, {
+                            icon: L.mapbox.marker.icon({
+                                'marker-color': '#BE9A6B',
+                                'marker-symbol': 'marker',
+                                'marker-size': 'medium'
+                            })
+                        })
+                        .bindPopup('<strong><a href="https://foursquare.com/v/' + venue.id + '">' +
+                                venue.name + '</a></strong>')
+                        .addTo(foursquarePlaces);
+            }
+
+        });
+        $('#foursquareSearch').remove();
+    }
+
+</script>
+<div class="navbar navbar-fixed-bottom footerFoursquare" id="footer">
+    &#169; Application creator: Matthieu Van Wambeke. All rights reserved.
+</div>
+</body>
+</html>

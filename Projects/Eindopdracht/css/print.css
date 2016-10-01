@@ -1,8 +1,0 @@
-/* 	Dit bestand zal gebruikt worden indien de breedte van het scherm groter is dan 900px	*/
-@media print { 
- /* All your print styles go here */
- #header, #footer, #nav { display: none !important; } 
-}
-
-
-

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Artists news</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../common/get_key_with_callback.js"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+
+<div id="wrap" class="navbar navbar-inverse">
+    <div class="navbar-inner" id="navigationOwn">
+        <div class="container">
+            <a id='show-search' class="brand" href="index.html">Recent Artist News</a>
+            <ul class="nav">
+                <li class="nav-choice"><a href="index.html">Main</a></li>
+                <li class="nav-choice active"><a href="SearchNews.html">Search for news</a></li>
+                <li class="nav-choice"><a href="ArtistNews.html">Search for reviews</a></li>
+                <li class="nav-choice"><a href="Artistbylocation.html">Search artist by location</a></li>
+            </ul>
+            <ul class="nav pull-right">
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="hero-unit" id="homePage">
+        <h1>Find all news!</h1>
+        <h3>Here you can search for all the news about your favorite artist!</h3>
+        <div>
+            <input id="artist" type="text" placeholder="Enter artist name ...">
+            <input type="text" id="result" placeholder="Number of articles...">
+            <button id="go" class="btn btn-primary"> Get News </button>
+        </div>
+        <div> <input id='relevant' type="checkbox" checked>Only receive high relevant news</input> </div>
+        <div id="info" class=""> </div>
+    </div>
+    <div id="results"> </div>
+</div>
+<script type="text/javascript">
+    var apiKey = 'NO_API_KEY';
+    var amount;
+    var i = 0;
+    jQuery.ajaxSettings.traditional = true;
+    function fetchNews(artist, highRelevance) {
+        var url = 'http://developer.echonest.com/api/v4/artist/news';
+        $("#results").hide();
+        var args = {
+            format:'json',
+            api_key: apiKey,
+            name: artist,
+            results: amount
+        };
+        info("Fetching the news for " + artist);
+        $.getJSON(url, args,
+                function(data) {
+                    $("#results").empty();
+                    if (! ('news' in data.response)) {
+                        error("Can't find any news for " + artist);
+                    } else {
+                        $("#results").show();
+                        var titles = {}
+
+                        $.each(data.response.news, function(index, news) {
+
+                            if (! (news.name in titles)) {
+
+                                    var div = formatNews(news, i);
+
+                                $("#results").append(div);
+i++;
+
+                                titles[news.name] = 1;
+
+                            }
+                        });
+
+                        info("Showing " + data.response.news.length + " of " + data.response.total + " news items for " + artist);
+                    }
+                },
+                function() {
+                    error("Trouble getting news for " + artist);
+                }
+        );
+    }
+
+    function formatNews(news, i) {
+            var div = $("<div class='news well' id='clickNews" + i + "'>");
+            div.append($("<h3>").html(news.name));
+            var date = "";
+            if ('date_posted' in news) {
+                date = "<i>" + news.date_posted.substring(0, 10) + '</i> ';
+            }
+            div.append($("<p>").html(date + news.summary + " ..."));
+        var link = $("<a style='color: black; font-size: 20px; list-style-type: none; text-decoration: none'>");
+        link.attr('href', news.url);
+        link.text("For the full story click here! " + getSource(news.url));
+        $('#clickNews'+i).on("click", function(){
+            (window.open(news.url));
+        });
+            div.append(link);
+            return div;
+    }
+
+    function go() {
+        var artist = $.trim($("#artist").val());
+        amount = document.getElementById('result').value;
+        if (artist.length > 0 && amount <= 100) {
+            var relevance = $("#relevant").is(':checked');
+            fetchNews(artist, relevance);
+        } else {
+            info("Type an artist name first");
+            info("Please choose between 0-100 results");
+        }
+    }
+    function getSource(url) {
+        var path = url.split('/');
+        return path[2]	;
+    }
+    function info(s) {
+        $("#info").removeClass();
+        if (s.length > 0) {
+            $("#info").addClass("alert alert-info");
+        }
+        $("#info").text(s);
+    }
+    function error(s) {
+        $("#info").removeClass();
+        if (s.length > 0) {
+            $("#info").addClass("alert alert-error");
+        }
+        $("#info").text(s);
+    }
+    function clickedNews(news){
+        window.location.replace(news.url);
+    }
+    $(document).ready(function(news) {
+        // fetchApiKey will fetch the Echo Nest demo key for demos
+        // hosted on The Echo Nest, otherwise it fetch an empty key
+        api_key = 'RUUIRW2QSRYZYMDIV';
+        apiKey = api_key;
+        $.ajaxSetup({ cache: false });
+        $("#all_results").hide();
+        $("#go").click(go);
+        $("#artist").change(go);
+    });
+</script>
+</body>
+</html>

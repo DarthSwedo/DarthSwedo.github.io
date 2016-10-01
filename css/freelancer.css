@@ -54,7 +54,8 @@ hr.star-light {
   border-color: white;
 }
 hr.star-light:after {
-  background-color: #18BC9C;
+  background-color: darkorange;
+  border-radius: 50%;
   color: white;
 }
 hr.star-primary {
@@ -69,7 +70,9 @@ hr.star-primary:after {
 }
 header {
   text-align: center;
-  background: #18BC9C;
+  background: url("../img/head.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   color: white;
 }
 header .container {
@@ -104,7 +107,7 @@ header .intro-text .skills {
   }
 }
 .navbar-custom {
-  background: #2C3E50;
+  background: darkorange;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-weight: 700;
@@ -186,7 +189,7 @@ section h2 {
   font-size: 3em;
 }
 section.success {
-  background: #18BC9C;
+  background: darkorange;
   color: white;
 }
 @media (max-width: 767px) {

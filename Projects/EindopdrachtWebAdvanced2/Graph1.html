@@ -1,0 +1,186 @@
+<html>
+<head>
+    <title>Top artists graph</title>
+    <meta charset="UTF-8">
+    <link href="images/style.css" rel="stylesheet" type="text/css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="js/amcharts.js" type="text/javascript"></script>
+    <script src="js/serial.js" type="text/javascript"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../common/get_key_with_callback.js"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+<div class="container footerWrapper">
+    <div class="footerDomein" id="graphDomein">
+        <div>
+            <input id="return" type="button" value="Return to homepage" style="background-color: #383635; color: white;">
+        </div>
+        <div id="slideGraph">
+            <select name="selGraph" id="selGraph" onchange="changeLine()">
+                <option value="line">Line</option>
+                <option value="column">Column</option>
+            </select>
+            <select name="selType" id="selType" onchange="changeType()">
+                <option value="artists">Artists</option>
+                <option value="terms">Terms</option>
+            </select>
+        </div>
+        <div id="results">
+            <div id="chartdiv" style="width: 80%; height: 80%;"></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    jQuery.ajaxSettings.traditional = true;
+    var changeValue;
+    var selType, selGraph, typeValue, graphValue;
+    $(document).ready(function(){
+        if(typeValue == null){
+            typeValue = "artists";
+        }
+        if(graphValue == null){
+            graphValue = "line";
+        }
+        $('#return').click(function(){
+            window.location.href = "ExploreMusic.html";
+        });
+    });
+    function changeType(){
+        selType = document.getElementById("selType");
+        typeValue = selType.value;
+        if(typeValue == "artists"){
+        go();
+        }
+        else{
+            goGraph();
+        }
+    }
+    function changeLine(){
+            selGraph = document.getElementById("selGraph");
+            graphValue = selGraph.value;
+
+        if(typeValue == "artists"){
+        go();
+        } else{
+            goGraph();
+        }
+    }
+    function goGraph(){
+        var apiKey = 'RUUIRW2QSRYZYMDIV';
+        var root, artists, hotttnesss, type;
+        var url = 'http://developer.echonest.com/api/v4/artist/top_terms';
+
+        var args = {
+            format:'json',
+            api_key: apiKey,
+        };
+        $("#chartdiv").remove();
+        $.getJSON(url, args,
+                function (dataecho) {
+                    root = dataecho.response.terms;
+                    $(document).ready(function() {
+                        var chart = new AmCharts.AmSerialChart();
+                        chart.dataProvider = root;
+                        chart.categoryField = "name";
+                        var categoryAxis = chart.categoryAxis;
+                        var graph = new AmCharts.AmGraph();
+                        graph.valueField = "frequency";
+                        graph.type = graphValue;
+                        graph.fillAlphas = 0.8;
+                        chart.angle = 15;
+                        chart.depth3D = 5;
+                        chart.addGraph(graph);
+                        var chartdiv = '<div id="chartdiv" style="width: 80%; height: 80%;"></div>';
+                        $('#results').append(chartdiv);
+                        chart.write('chartdiv');
+                    });
+                });
+    }
+    function go(){
+    var apiKey = 'RUUIRW2QSRYZYMDIV';
+    var root, artists, hotttnesss, type;
+    var url = 'http://developer.echonest.com/api/v4/artist/top_hottt';
+
+    var args = {
+        format:'json',
+        api_key: apiKey,
+        results: 20,
+        bucket: ['hotttnesss']
+    };
+
+    $("#chartdiv").remove();
+    $.getJSON(url, args,
+            function (dataecho) {
+                root = dataecho.response.artists;
+                $(document).ready(function() {
+                    var chart = new AmCharts.AmSerialChart();
+                    chart.dataProvider = root;
+                    chart.categoryField = "name";
+                    var categoryAxis = chart.categoryAxis;
+                    var graph = new AmCharts.AmGraph();
+                    graph.valueField = "hotttnesss";
+                    console.log(graphValue);
+                    graph.type = graphValue;
+                    graph.fillAlphas = 0.8;
+                    categoryAxis.autoGridCount = false;
+                    categoryAxis.gridPosition = "start";
+                    categoryAxis.gridCount = root.length;
+                    categoryAxis.labelRotation = 90;
+                    chart.angle = 15;
+                    chart.depth3D = 5;
+
+                    chart.addGraph(graph);
+                    var chartdiv = '<div id="chartdiv" style="width: 80%; height: 80%;"></div>';
+                    $('#results').append(chartdiv);
+                    chart.write('chartdiv');
+                });
+            });
+}
+    /*
+    function onoff(){
+        var typos = document.getElementById('onoff').value;
+        if(typos == "column"){
+            document.getElementById("onoff").value="line";
+            if(changeValue == "Change to artists"){
+            goGraph();
+            }
+            else{
+                go();
+            }
+        }else{
+            document.getElementById("onoff").value="column";
+            if(changeValue == "Change to artists"){
+                goGraph();
+            }
+            else{
+                go();
+            }
+        }
+    }
+    function changes(){
+        changeValue = document.getElementById('change').value;
+        if(changeValue == "Change to artists"){
+            document.getElementById('change').value = "Change to terms";
+            $("#chartdiv").remove();
+            go();
+        }
+        else {
+            document.getElementById('change').value = "Change to artists";
+            $("#chartdiv").remove();
+            goGraph();
+        }
+    }*/
+    $(document).ready(function(news) {
+        api_key = 'RUUIRW2QSRYZYMDIV';
+        apiKey = api_key;
+        go();
+    });
+</script>
+</body>
+</html>

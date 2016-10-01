@@ -1,0 +1,184 @@
+
+.footer{
+    height: 50px;
+}
+#footer{
+    position: relative;
+}
+body{
+    background: #BFB196;
+    font-family: Dense;
+    height: 100%;
+}
+
+@font-face {
+    font-family: Dense;
+    src: url(../fonts/Dense-Regular/Dense-Regular.otf);
+}
+
+h1{
+    font-size: 40px;
+}
+#map{
+    height: auto;
+}
+#fb-login-button-div{
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#user-is-authenticated{
+    height: 500px;
+    width: auto;
+}
+.ingelogd{
+    align-content: flex-end;
+    height: auto;
+    font-size: 50px;
+    text-align: center;
+    bottom: 0;
+}
+
+.home{
+    background-repeat: no-repeat;
+    background-image: url("../images/background.jpg");
+}
+
+.ui-datepicker { width:210px; }
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: 60px;
+    background-color: white;
+}
+.homePage{
+    margin: auto;
+
+    color: black;
+}
+.calendar{
+    background-color: white;
+    border: solid 1px black;
+    position: absolute;
+    left: 30%;
+    top: 50%;
+    z-index: 100;
+}
+.btn {
+    background: #D21A0E;
+    background-image: -webkit-linear-gradient(top, #BFB196, #939081);
+    background-image: -moz-linear-gradient(top, #BFB196, #939081);
+    background-image: -ms-linear-gradient(top, #BFB196, #939081);
+    background-image: -o-linear-gradient(top, #BFB196, #939081);
+    background-image: linear-gradient(to bottom, #BFB196, #939081);
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 40px;
+    color: white;
+    font-size: 50px;
+    padding: 50px 70px 50px 70px;
+    text-decoration: none;
+}
+.btn:hover {
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    text-decoration: none;
+}
+#resultaat{
+    width: 100%;
+    display: none;
+}
+#i{
+    float: left;
+    list-style-type: none;
+}
+.container{
+    z-index:3;
+}
+.popupTest{
+    width: 500px;
+    height: 250px;
+    background-color: white;
+    display: block;
+    position: fixed;
+    border: solid black 3px;
+;}
+.popupContainer{
+    position: fixed;
+    background-color: white;
+    z-index: 2;
+}
+/*RATING CSS RATING CSS RATING CSS RATING CSS RATING CSS RATING CSS RATING CSS RATING CSS RATING CSS RATING CSS RATING CSS RATING CSS  */
+.foursquare{
+    height: 60px;
+}
+
+/* LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST */
+* {margin: 0; padding: 0;}
+
+.imageList{
+    display: inline-block;
+    width: auto;
+}
+
+.textList{
+    display: inline-block;
+    max-width: 400px;
+}
+/*
+.label, .list{
+    display: inline-block;
+}
+.label{
+    width: 100px;
+}
+*/
+.divList {
+    position: relative;
+    display: inline-block;
+}
+
+.imageYelp{
+    max-width: 200px;
+    height: 200px;
+}
+
+ul {
+    list-style-type: none;
+    display: inline-block;
+}
+
+h3 {
+    font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+}
+
+li img {
+    float: left;
+    margin: 0 15px 0 0;
+}
+
+li p{
+    font: 200 12px/1.5 Georgia, Times New Roman, serif;
+}
+
+li {
+    padding: 10px;
+    overflow: auto;
+    display: block;
+    height: auto;
+    width: auto;
+}
+
+li:hover {
+    background: #eee;
+    cursor: pointer;
+}
+

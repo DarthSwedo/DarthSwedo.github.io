@@ -1,0 +1,90 @@
+<html>
+<head>
+    <title>Explore music</title>
+    <meta charset="UTF-8">
+    <link href="images/style.css" rel="stylesheet" type="text/css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="js/amcharts.js" type="text/javascript"></script>
+    <script src="js/serial.js" type="text/javascript"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../common/get_key_with_callback.js"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+<div id="wrap" class="navbar navbar-inverse">
+    <div class="navbar-inner" id="navigationOwn">
+        <div class="container">
+            <a id='show-search' class="brand" href="index.html">Music explorer MatthieuVW</a>
+            <ul class="nav">
+                <li class="nav-choice active"><a href="index.html">Main</a></li>
+                <li class="nav-choice"><a href="Graph1.html">Top artists terms/liked</a></li>
+                <li class="nav-choice"><a href="popularityGraph.html">Visualize popularity</a></li>
+                <li class="nav-choice"><a href="graphInteractive.html">Top artists Bubbles</a></li>
+                <li class="nav-choice"><a href="graphInteractive.html">Interactive graph</a></li>
+            </ul>
+            <ul class="nav pull-right">
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="homepageOwn">
+    <div class="container">
+        <h1 style="text-align: center; opacity: 1;">Visualize artists and music!</h1>
+    </div>
+</div>
+<div class="container homepageWrapper">
+    <div class="domeinen" id="graph1Click">
+        <img src="images/Graph1.png" alt="Generic placeholder image">
+        <h2>Top artists</h2>
+        <h3>View the most liked artists in a graph!</h3>
+        <p>Get a nice overview of all the most liked artists based on a percentage! This value is based on
+        reviewers.</p>
+    </div>
+    <div class="domeinen" id="graph2Click">
+        <img src="images/Gauge.png" alt="Generic placeholder image">
+        <h2>Visualize an artist's popularity</h2>
+        <h3>Get the best view on who is best liked and who's less liked!</h3>
+        <p>With this visualization you can get a great idea of who's insanely popular and who's
+        more like: "meh... He's good but not that good" !</p>
+    </div>
+    <div class="domeinen" id="graph3Click">
+        <img src="images/Interact.png" alt="Generic placeholder image">
+        <h2>Bubbles!</h2>
+        <h3>Here you can generate bubbles of top artists!</h3>
+        <p>Here you can click on generated bubbles with famous artist. You can see there most popular
+        songs around their name and click their name if you're interested!</p>
+    </div>
+</div>
+<div class="container footerWrapper">
+    <div class="footerDomein" id="intergraphClick">
+        <img src="images/Intergraph.png" alt="Generic placeholder image">
+        <h2>Interact with genres!</h2>
+        <h3>Lose yourself in our interactive music graphs!</h3>
+        <p>Here you are able to see all the most popular artists by genre displayed on
+            one page! This way you will explore new kinds of music that you would've never
+            tried before!</p>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#graph1Click').on("click", function(){
+            (window.location.replace('Graph1.html'));
+        });
+        $('#graph2Click').on("click", function(){
+            (window.location.replace('popularityGraph.html'));
+        });
+        $('#graph3Click').on("click", function(){
+            (window.location.replace('graphInteractive.html'));
+        });
+        $('#intergraphClick').on("click", function(){
+            (window.location.replace('interactiveGenres.html'));
+        });
+    });
+</script>
+</body>
+</html>
