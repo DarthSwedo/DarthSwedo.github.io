@@ -73,6 +73,7 @@ header {
   background: url("../img/head.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  filter: grayscale(1);
 =======
 >>>>>>> 40caa6425e66d6408f980a36a81606b124a9aafd
   color: white;
