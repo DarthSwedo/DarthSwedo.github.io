@@ -54,7 +54,8 @@ hr.star-light {
   border-color: white;
 }
 hr.star-light:after {
-  background-color: #18BC9C;
+  background-color: darkorange;
+  border-radius: 50%;
   color: white;
 }
 hr.star-primary {
@@ -73,6 +74,8 @@ header {
   background-repeat: no-repeat;
   background-size: cover;
   filter: grayscale(1);
+=======
+>>>>>>> 40caa6425e66d6408f980a36a81606b124a9aafd
   color: white;
 }
 header .container {
@@ -107,7 +110,7 @@ header .intro-text .skills {
   }
 }
 .navbar-custom {
-  background: #2C3E50;
+  background: darkorange;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-weight: 700;
@@ -189,7 +192,7 @@ section h2 {
   font-size: 3em;
 }
 section.success {
-  background: #18BC9C;
+  background: darkorange;
   color: white;
 }
 @media (max-width: 767px) {
