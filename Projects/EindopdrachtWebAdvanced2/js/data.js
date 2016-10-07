@@ -5,7 +5,7 @@ var apiKey = 'NO_API_KEY';
 var amount;
 jQuery.ajaxSettings.traditional = true;
 function fetchNews(artist, highRelevance) {
-    var url = 'http://developer.echonest.com/api/v4/artist/news';
+    var url = 'https://api.spotify.com/v1/albums/';
     $("#results").hide();
     var args = {
         format:'json',
