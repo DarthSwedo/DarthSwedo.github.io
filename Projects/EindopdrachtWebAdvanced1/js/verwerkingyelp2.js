@@ -133,13 +133,6 @@ function listMaker(location, term, name , img,i, phone, rating, address, review)
     content += '<p class="list" id="Telefoon' + i + '"name="phone">Phone venue:' + phone + '</p>';
     content += '</div>';
     content += '</div>';
-    content += '<input type="hidden" id="phoneInfo'+i+'" value="'+phone+'">';
-    content += '<input type="hidden" id="ratingInfo'+i+'" value="'+rating+'">';
-    content += '<input type="hidden" id="nameInfo'+i+'" value="'+name+'">';
-    content += '<input type="hidden" id="reviewInfo'+i+'" value="'+review+'">';
-    content += '<input type="hidden" id="addressInfo'+i+'" value="'+address+'">';
-    content += '<input type="hidden" id="termInfo'+i+'" value="'+term+'">';
-    content += '<input type="hidden" id="locationInfo'+i+'" value="'+location+'">';
         var x = document.getElementById('resultaat');
     x.style.display = 'block';
     $('#resultaat').append(content);
