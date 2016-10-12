@@ -133,7 +133,7 @@ img{
     max-width: 48%;
     float: left;
     color: white;
-    background-color: rgba(115, 111, 172, 0.75);
+    background-color: rgba(115, 150, 200, 0.75);
     border-radius: 20px;
     margin: 10px;
 }
@@ -190,7 +190,7 @@ img{
     padding: 16px 23px;
     margin: 2px;
     color: white;
-    background-color: rgba(115, 111, 200, 0.95);
+    background-color: rgba(115, 111, 172, 0.75);
 }
 .btn:hover{
     color: white;
