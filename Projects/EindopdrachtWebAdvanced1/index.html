@@ -53,7 +53,7 @@
     }());
 
     function facebookLogin() {
-        FB.login(onFacebookLoginStatus, {scope: 'user_friends'});
+        FB.login(onFacebookInitialLoginStatus, {scope: 'user_friends'});
     }
 
     function onFacebookInitialLoginStatus(response) {
