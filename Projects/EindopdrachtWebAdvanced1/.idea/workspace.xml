@@ -31,11 +31,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="YelpIndex.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="YelpIndex.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/YelpIndex.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="9" column="106" selection-start-line="9" selection-start-column="106" selection-end-line="9" selection-end-column="106" />
+            <state relative-caret-position="217">
+              <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -95,7 +95,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bootstrapCSS.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="bootstrapCSS.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/bootstrapCSS.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="294">
@@ -126,8 +126,8 @@
         <option value="$PROJECT_DIR$/js/popupJS.js" />
         <option value="$PROJECT_DIR$/popupDesign.html" />
         <option value="$PROJECT_DIR$/js/verwerkingyelp2.js" />
-        <option value="$PROJECT_DIR$/YelpIndex.html" />
         <option value="$PROJECT_DIR$/css/bootstrapCSS.css" />
+        <option value="$PROJECT_DIR$/YelpIndex.html" />
       </list>
     </option>
   </component>
@@ -274,12 +274,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1450426411969</updated>
-      <workItem from="1476255513231" duration="1118000" />
+      <workItem from="1476255513231" duration="1411000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1118000" />
+    <option name="totallyTimeSpent" value="1411000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
@@ -450,24 +450,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/verwerkingyelp2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="102" column="49" selection-start-line="102" selection-start-column="47" selection-end-line="102" selection-end-column="49" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/YelpIndex.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="9" column="106" selection-start-line="9" selection-start-column="106" selection-end-line="9" selection-end-column="106" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="647">
@@ -488,6 +470,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
           <caret line="59" column="14" selection-start-line="59" selection-start-column="14" selection-end-line="59" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/verwerkingyelp2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="102" column="49" selection-start-line="102" selection-start-column="47" selection-end-line="102" selection-end-column="49" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/YelpIndex.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
           <folding />
         </state>
       </provider>
