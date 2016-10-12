@@ -56,6 +56,9 @@ html, body {
 .navbar-brand:hover{
     background-color: #fff;
 }
+.navbar{
+    margin: 0;
+}
 .navbar-brand{
     float: left;
     height: 50px;
@@ -72,6 +75,9 @@ html, body {
     background-color: white;
     border: none;
     list-style-type: none;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
 }
 .navigation{
     color: white;
