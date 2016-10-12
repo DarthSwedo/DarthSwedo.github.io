@@ -81,9 +81,6 @@ function searchThis(location, term){
         'method' : 'GET',
         'parameters' : parameters
     };
-    if(OAuth == false){
-        console.log(this.error);
-    }
     OAuth.setTimestampAndNonce(message);
     OAuth.SignatureMethod.sign(message, accessor);
 
