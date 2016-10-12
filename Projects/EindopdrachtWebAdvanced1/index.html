@@ -77,7 +77,12 @@
             $('#user-is-authenticated').append(contentDiv);
         }
         else {
-            alert("Please login to facebook to enjoy our application.");
+            var contentDiv;
+            contentDiv = '<div id="fb-login-button-div">';
+            contentDiv += '<input class="btn" type="button" onclick="FB.login()" value="Login to facebook" >';
+            contentDiv = '</div>';
+            alert("Please login to facebook to use our application.");
+            $('#user-is-authenticated').append(contentDiv);
             facebookLogin();
         }
     }
@@ -92,37 +97,6 @@
     function onFacebookStatusChange(response) {
 
     }
-
-  /*  function onFacebookLoginStatus(response) {
-
-        if (response.status == "connected" && response.authResponse) {
-
-            var loginButtonDiv = document.getElementById("fb-login-button-div");
-            loginButtonDiv.style.display = "none";
-
-            var contentDiv = '<div id="fb-login-button-div">';
-            contentDiv += '<p class="ingelogd">You are logged in to facebook, now you can use our application</p>';
-            contentDiv += '</div>';
-            contentDiv += '<div class="pushButton">';
-            contentDiv += '</div>';
-            contentDiv += '<div id="geefWeer">';
-            contentDiv += '<input class="btn" type="button" onclick="geefWeerFoursquare()" value="Use Foursquare" >';
-            contentDiv += '<input class="btn" type="button" onclick="geefWeerYelp()" value="Use Yelp" >';
-            contentDiv += '</div>';
-
-            $('#user-is-authenticated').append(contentDiv);
-            function geefWeerFoursquare() {
-                window.location = "FoursquareIndex.html";
-            }
-            function geefWeerYelp() {
-                window.location = "YelpIndex.html";
-            }
-        }
-        else {
-            alert("Please login to facebook to enjoy our application.");
-        }
-
-    }*/
 
 </script>
 
