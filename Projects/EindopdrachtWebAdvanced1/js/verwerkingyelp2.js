@@ -49,12 +49,12 @@ function searchThis(location, term){
         //
         // Update with your auth tokens.
         //
-        consumerKey : "098BsEwKCpflXSoeZ_16Vg",
-        consumerSecret : "6h7W-csoKgMZhnebAKoJq-gKr20",
-        accessToken : "nwg-3w9d41D7Sdc25kAJ9jMEnJszaBD2",
+        consumerKey : "rUq15iyObKN3zMTdAcfc3Q",
+        consumerSecret : "M405cc8Vp2kHYBD-Zx5VLG1KziQ",
+        accessToken : "IlLdbbmZhYE0HohWrqVcxslTp8eefsfb",
         // This example is a proof of concept, for how to use the Yelp v2 API with javascript.
         // You wouldn't actually want to expose your access token secret like this in a real application.
-        accessTokenSecret : "WMO9_0jGlK4otGT2lJbx_uFHWbU",
+        accessTokenSecret : "d8a-LWts8NORMYlz6zOQqdQQ6Pk",
         serviceProvider : {
             signatureMethod : "HMAC-SHA1"
         }
