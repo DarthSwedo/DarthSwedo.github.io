@@ -77,7 +77,7 @@ function searchThis(location, term){
     parameters.push(['oauth_signature_method', 'HMAC-SHA1']);
 
     var message = {
-        'action' : 'http://api.yelp.com/v2/search',
+        'action' : 'https://api.yelp.com/v2/search',
         'method' : 'GET',
         'parameters' : parameters
     };
@@ -106,7 +106,7 @@ function searchThis(location, term){
 }
 function listMaker(location, term, name , img,i, phone, rating, address, review){
 
-    var noimage = 'http://www.jordansjobs.com/~/media/Jordans%20Redesign/No-image-found.ashx';
+    var noimage = 'https://www.jordansjobs.com/~/media/Jordans%20Redesign/No-image-found.ashx';
     var content = '<div class="container" id="divList"  onclick="Popupmaker('+i+')">';
     content += '<div class="textList">';
     if(img == null){
