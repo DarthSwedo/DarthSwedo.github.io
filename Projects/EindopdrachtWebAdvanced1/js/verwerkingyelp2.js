@@ -19,6 +19,7 @@
 var url = "https://api.yelp.com/v2/search?";
 var term;
 var location;
+var name, address, phone, rating, review, imageUrl;
 function createURL(location, term){
 
     var search = url + "term=" + term + "&" + "location=" + location;
@@ -99,7 +100,13 @@ function searchThis(location, term){
             var i = 0;
             $.each(data.businesses, function(key,value){
                 i += 1;
-               listMaker(location, term, value.name, value.image_url,i, value.phone, value.rating, value.location.address, value.review_count);
+                name = value.name;
+                imageUrl = value.image_url;
+                phone = value.phone;
+                rating = value.rating;
+                address = value.location.address;
+                review = value.review_count;
+               listMaker(location, term, name, imageUrl,i, phone, rating, address, review);
             });
         }
     });
