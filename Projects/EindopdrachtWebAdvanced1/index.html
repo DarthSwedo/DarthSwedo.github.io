@@ -80,8 +80,8 @@
             var contentDiv;
             contentDiv = '<div id="fb-login-button-div">';
             contentDiv += '<p class="ingelogd">You need to be signed in on facebook to enjoy all the features of this application</p>';
-            contentDiv += '<input class="btn" type="button" onclick="FB.login()" value="Login to facebook" >';
             contentDiv += '</div>';
+            contentDiv += '<input class="btn" type="button" onclick="FB.login()" value="Login to facebook" >';
             alert("Please login to facebook to use our application.");
             $('#user-is-authenticated').append(contentDiv);
         }
@@ -95,7 +95,7 @@
     }
 
     function onFacebookStatusChange(response) {
-
+        onFacebookInitialLoginStatus(response);
     }
 
 </script>
