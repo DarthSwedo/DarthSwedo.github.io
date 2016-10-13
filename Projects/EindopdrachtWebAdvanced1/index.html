@@ -61,8 +61,6 @@
         if (response.status == "connected" && response.authResponse) {
 
             alert("You are signed in on Facebook! Enjoy the application");
-            var loginButtonDiv = document.getElementById("fb-login-button-div");
-            loginButtonDiv.style.display = "none";
 
             var contentDiv = '<div id="fb-login-button-div">';
             contentDiv += '<p class="ingelogd">You are logged in to facebook, now you can use our application</p>';
