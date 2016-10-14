@@ -117,15 +117,16 @@ function listMaker(location, term, name , img,i, phone, rating, address, review)
     var content = '<div class="container" id="divList"  onclick="Popupmaker('+i+')">';
     content += '<div class="textList">';
     if(img == null){
-
+        content += '<div>';
         content += '<img class="imageYelp" id="Basisinfo'+i+'" for="' + i + '" src="' + noimage + '">';
-
+        content += '</div>';
     }
     else {
-
+        content += '<div>';
         content += '<img class="imageYelp" src="' + img + '">';
-
+        content += '</div>';
     }
+    content += '<div>';
     content += '<h3 class="list" >Name of the venue: '+name+'</h3>';
     content += '<p class="list" name="term" >Type of the venue: '+term+'</p>';
     content += '<p class="list" name="location" >Location of the venue:'+location+'</p>';
@@ -133,7 +134,8 @@ function listMaker(location, term, name , img,i, phone, rating, address, review)
     content += '<p class="list" id="Telefoon' + i + '"name="phone">Phone venue:' + phone + '</p>';
     content += '</div>';
     content += '</div>';
-        var x = document.getElementById('resultaat');
+    content += '</div>';
+    var x = document.getElementById('resultaat');
     x.style.display = 'block';
     $('#resultaat').append(content);
 }
