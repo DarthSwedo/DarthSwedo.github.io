@@ -1,0 +1,108 @@
+@import '../libs/vars';
+@import '../libs/functions';
+@import '../libs/mixins';
+
+///
+/// Eventually by HTML5 UP
+/// html5up.net | @ajlkn
+/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+///
+
+/* Header */
+
+	#header {
+		background-color: _palette(infosectionbghead);
+		display: flex;
+		flex-direction: row;
+		padding: 1.5em 100px;
+		height: 160px;
+		@include breakpoint(small) {
+			padding: 0.5em;
+			flex-direction: column;
+			align-items: center;
+		}
+		.headerLeft {
+		}
+		.headerRight {
+			display: flex;
+			width: 50%;
+			margin-bottom: 10px;
+			justify-content: flex-end;
+			align-items: center;
+			@include breakpoint(small){
+				width: 100%;
+				justify-content: center;
+				text-align: center;
+			}
+			h3 {
+				color: _palette(headerbg);
+				margin: 10px 0;
+				font-weight: lighter;
+				line-height: 1.25em;
+				@include breakpoint(small){
+					font-size: 1.10em;
+				}
+			}
+		}
+		.headerTitle {
+			display: flex;
+			width: 80%;
+			align-items: center;
+			text-align: center;
+			margin-right: 30px;
+			background-image: url("../../images/logowtxt2.png");
+			background-repeat: no-repeat;
+			background-size: contain;
+
+			@include breakpoint(small){
+				margin-right: 0;
+				width: 60%;
+				height: 100%;
+			}
+			@include breakpoint(xsmall) {
+				width: 60%;
+			}
+		}
+		h1 {
+			font-size: 1.5em;
+			margin: 0;
+			color: _palette(headerbg);
+			width: 21%;
+		}
+
+		p {
+			font-size: 1.35em;
+			line-height: 1.65em;
+		}
+
+		a {
+			color: inherit;
+		}
+		@include breakpoint(xxlarge){
+			h3{
+			}
+		}
+		@include breakpoint(small) {
+			h1{
+				margin: 1.5em 0 2em 0;
+				font-size: 1em;
+				width: auto;
+			}
+			h3{
+				width: 80%;
+			}
+		}
+		@include breakpoint(xsmall){
+			h1{
+				font-size: 1em;
+			}
+			h3{
+				width: 80%;
+			}
+		}
+
+
+		@include breakpoint(xxsmall) {
+			//font-size: 2em;
+		}
+	}

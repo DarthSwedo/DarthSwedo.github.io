@@ -1,0 +1,108 @@
+// Misc.
+	$misc: (
+	);
+
+// Duration.
+	$duration: (
+		nav:				0.5s,
+		transition:			0.2s,
+		bg-fadein:			2s,
+		bg-transition:		3s,
+		bg-slide:			45s // (lower = faster, higher = slower)
+	);
+
+// Size.
+	$size: (
+		border-radius:		6px,
+		border-width:		1px,
+		element-height:		2.75em,
+		element-margin:		1em
+	);
+
+// Font.
+	$font: (
+		family:				('Comfortaa', sans-serif),
+		family-fixed:		('Courier New', monospace),
+		weight:				400,
+		weight-bold:		700,
+		letter-spacing:		-0.01em
+	);
+
+// Palette.
+	$palette: (
+		bg:					#000,
+		fg:					rgba(255,255,255,0.75),
+		fg-bold:			#fff,
+		fg-light:			#555,
+		border:				rgba(255,255,255,0.35),
+		border-bg:			rgba(255,255,255,0.125),
+		border2:			rgba(255,255,255,0.25),
+		//inputbg:			rgba(255,255,255,0.3),
+		//headerbg:			rgba(232,202,71,1),
+
+
+		//***********************BlueLB
+		//headerbg: 			white,
+		//buttonbg: 			rgba(66,128,247,0.8),
+		//hoverbg:			rgba(93,255,125,0.7),
+		//slagzinbg:			rgba(255,255,255,1),
+		//testbg:             white,
+		//emailbg:			rgba(66,128,247,0.8),
+		//iconbg: 			rgba(255,255,255,1),
+		//linebg:				rgba(91,91,91,0.6),
+		//infosectionbg:		rgba(200,200,200,0.4),
+		//infosectionbghead:	rgba(66,128,247,0.8),
+		//infosectiontxtbg:   rgba(170,170,170,0.8),
+		// infosectionheader:  rgba(66,128,247,0.8),
+
+		//***********Paars&Groen
+		//headerbg: 			white,
+		//buttonbg: 			rgba(137,212,26,0.8),
+		//hoverbg:			rgba(93,255,125,0.7),
+		////slagzinbg:			rgba(137,212,26,1),
+		//slagzinbg:          white,
+		//testbg:             white,
+		//emailbg:			rgba(137,212,26,0.8),
+		//iconbg: 			rgba(255,255,255,1),
+		//linebg:				rgba(91,91,91,0.6),
+		//infosectionbg:		rgba(255,255,255,1),
+		//infosectionbghead:	rgba(137,212,26,0.8),
+		//infosectionheader:  rgba(137,212,26,0.8),
+		//infosectiontxtbg:   rgba(170,170,170,0.8),
+
+		//***********Oranje
+		inputbg:			rgba(255,255,255,0.3),
+		buttonbg: 			rgba(252, 163, 1,1),
+		hoverbg:			rgba(255, 184, 56,1),
+		slagzinbg:			#555,
+		headerbg:			white,
+		testbg:             white,
+		emailbg:			#555,
+		iconbg: 			rgba(255, 255, 255,1),
+		linebg:				rgba(91,91,91,0.6),
+		//infosectionbg:		rgba(108,187,168,0.8),
+		infosectionbg:		rgba(255,255,255,1),
+		infosectionbghead:	rgba(252, 163, 1,1),
+		infosectionheader:  rgba(252,163,1,1),
+		infosectiontxtbg:   #555,
+
+
+		accent: (
+			bg:				#1cb495,
+			fg:				mix(#1cb495, #ffffff, 25%),
+			fg-bold:		#ffffff,
+			fg-light:		mix(#1cb495, #ffffff, 40%),
+			border:			rgba(255,255,255,0.25),
+			border-bg:		rgba(255,255,255,0.075),
+		),
+
+		positive: (
+			bg:				#1cb495,
+			fg:				#ffffff
+		),
+
+		negative: (
+			bg:				#ff2361,
+			fg:				#ffffff
+		)
+	);
